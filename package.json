@@ -1,7 +1,13 @@
 {
   "scripts": {
-    "build": "parcel build",
-    "start": "parcel ./src/*.html"
+    "build": "parcel build ./src/index.html",
+    "start": "parcel ./src/*.html",
+    "predeploy" : "rm -rf dist && parcel build src/index.html --no-source-maps --public-url ./ --dist-dir ./dist/form-tcc",
+    "deploy" : "gh-pages -d dist"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "engines": {
+    "node": "20.x"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
@@ -17,6 +23,7 @@
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "events": "^3.3.0",
+    "gh-pages": "^6.1.1",
     "parcel": "^2.12.0",
     "postcss": "^8.4.38",
     "process": "^0.11.10",
